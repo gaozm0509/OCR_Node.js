@@ -18,9 +18,10 @@ function requestTXService(imagePath) {
     return new Promise(function(resolve) {
         var url = "http://recognition.image.myqcloud.com/ocr/general"
         var formData = {
-            image: fs.createReadStream(imagePath),
+            // image: fs.createReadStream(imagePath),
             bucket: "gzmBucket",
             appid: appid,
+            url: imagePath,
 
         };
         var headers = {
@@ -29,14 +30,13 @@ function requestTXService(imagePath) {
         };
         request.post({ url: url, headers: headers, formData: formData }, function(error, response, body) {
             if (!error && response.statusCode == 200) {
-                // console.log("body:" + body);
-                // fuc(response.body);
-                resolve(body)
+                resolve(body);
+            } else if (body != null && body != undefined) {
+                resolve(body);
             } else {
                 console.log(error);
                 // fuc(error);
-                resolve(error)
-
+                resolve(error);
             }
         })
     });
