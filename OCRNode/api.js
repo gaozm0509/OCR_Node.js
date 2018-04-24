@@ -27,7 +27,7 @@ router.post('/upload', async ctx => {
         // // 异步
     var body = await imageProcessing.requestTXService(result.imagePath);
     fs.unlink(result.imagePath);
-    ctx.body = body;
+    ctx.body = result.imagePath;
 });
 router.get('/imageProcessing', async ctx => {
 
