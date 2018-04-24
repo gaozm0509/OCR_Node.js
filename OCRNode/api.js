@@ -26,7 +26,7 @@ router.post('/upload', async ctx => {
         })
         // // 异步
     var body = await imageProcessing.requestTXService(result.imagePath);
-    fs.unlink(result.imagePath);
+    // fs.unlink(result.imagePath);
     ctx.body = result.imagePath;
 });
 router.get('/imageProcessing', async ctx => {
@@ -44,5 +44,5 @@ router.get('/userInfo', async(ctx) => {
 app.use(router.routes());
 
 app.listen(3000, () => {
-    console.log('服务器启动')
+    console.log('server start')
 });
