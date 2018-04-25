@@ -40,9 +40,9 @@ router.post('/upload', async ctx => {
         // 异步
     let fileUrl = ctx.origin + '/upload-files/album/' + result.imageName
     var body = await imageProcessing.requestTXService(fileUrl);
-    setTimeout(function() {
-        console.log('5')
-    }, 86400); // 服务器保存一天
+    // setTimeout(function() {
+    //     console.log('5')
+    // }, 86400); // 服务器保存一天
     ctx.body = body;
 });
 
