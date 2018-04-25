@@ -38,11 +38,9 @@ router.post('/upload', async ctx => {
             path: serverFilePath
         })
         // 异步
-    let fileUrl = ctx.origin + '/upload-files/album/' + result.imageName
-    var body = await imageProcessing.requestTXService(fileUrl);
-    // setTimeout(function() {
-    //     console.log('5')
-    // }, 86400); // 服务器保存一天
+        // let fileUrl = 'http://39.104.119.48:3000' + '/upload-files/album/' + '0b5444b4d8164.jpg'
+    var body = await imageProcessing.requestTXService(result.imagePath);
+    fs.unlink(result.imagePath);
     ctx.body = body;
 });
 

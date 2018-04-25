@@ -18,10 +18,10 @@ function requestTXService(imagePath) {
     return new Promise(function(resolve) {
         var url = "http://recognition.image.myqcloud.com/ocr/general"
         var formData = {
-            // image: fs.createReadStream(imagePath),
+            image: fs.createReadStream(imagePath),
             bucket: "gzmBucket",
             appid: appid,
-            url: imagePath,
+            // url: imagePath,
 
         };
         var headers = {
