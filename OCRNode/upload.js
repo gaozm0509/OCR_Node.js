@@ -66,6 +66,7 @@ function uploadFile(ctx, options) {
                 result.imagePath = saveTo
                 result.success = true
                 result.message = '文件上传成功'
+                result.imageName = fileName
                 console.log('文件上传成功！')
             })
         })
